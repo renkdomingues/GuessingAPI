@@ -51,3 +51,4 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1DB2491D7C3E476C8885BC8CA6A70388 }}
           #package: '*.jar'
+          path: '${{ github.workspace }}/target/*.jar'
