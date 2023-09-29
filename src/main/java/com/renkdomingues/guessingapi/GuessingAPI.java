@@ -111,7 +111,8 @@ public class GuessingAPI {
 
         int stepCount = question.getStep() + 1;
 
-        return stepCount + ": " + question.getQuestion();
+        //return stepCount + ": " + question.getQuestion();
+        return question.getQuestion();
     }
 
     @PostMapping("/answer")
@@ -139,7 +140,7 @@ public class GuessingAPI {
         if (guess != null) {
             if (guess.getDescription() != null) {
                 isDescription = true;
-                return guess.getName() + guess.getDescription() + ". É isso que estava pensado?";
+                return guess.getName() + " " + guess.getDescription() + ". É isso que estava pensado?";
             } else {
                 isDescription = false;
                 aw.rejectLastGuess();
