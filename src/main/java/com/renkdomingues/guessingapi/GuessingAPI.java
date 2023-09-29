@@ -128,6 +128,7 @@ public class GuessingAPI {
 
         if(isDescription && response.equalsIgnoreCase("y")){
             aw.confirmGuess(guess);
+            new GuessingAPI();
             return finish(true);
         }
 
