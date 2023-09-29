@@ -1,5 +1,3 @@
-package org.eu.zajc.akiwrapper.example;
-
 import static java.lang.Character.toLowerCase;
 import static java.lang.System.*;
 import static java.util.stream.Collectors.joining;
