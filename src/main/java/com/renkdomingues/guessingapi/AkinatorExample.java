@@ -1,9 +1,11 @@
+package com.renkdomingues.guessingapi;
+
 import static java.lang.Character.toLowerCase;
 import static java.lang.System.*;
 import static java.util.stream.Collectors.joining;
 import static org.eu.zajc.akiwrapper.Akiwrapper.Answer.*;
 import static org.eu.zajc.akiwrapper.core.entities.Server.GuessType.CHARACTER;
-import static org.eu.zajc.akiwrapper.core.entities.Server.Language.ENGLISH;
+import static org.eu.zajc.akiwrapper.core.entities.Server.Language.PORTUGUESE;
 
 import java.util.*;
 
@@ -12,9 +14,13 @@ import javax.annotation.Nonnull;
 import org.eu.zajc.akiwrapper.*;
 import org.eu.zajc.akiwrapper.core.entities.*;
 import org.eu.zajc.akiwrapper.core.entities.Server.*;
-import org.eu.zajc.akiwrapper.core.exceptions.ServerNotFoundException;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 @SuppressWarnings("javadoc")
+@ComponentScan("com.renkdomingues.guessingapi")
+@SpringBootApplication
 public class AkinatorExample {
 
 	private static final String ANSWER_TIP =
@@ -22,6 +28,24 @@ public class AkinatorExample {
 	private static final Scanner IN = new Scanner(System.in).useDelimiter("\n");
 
 	public static void main(String[] args) {
+
+
+		//MINHAS MODIFICAÇÕES-------------------------------------
+
+
+		SpringApplication.run(AkinatorExample.class, args);
+		out.println("No ar!");
+
+
+
+
+
+		//--------------------------------------------------------
+
+
+
+
+		/*
 		boolean filterProfanity = getProfanityFilter();
 		// Gets player's age. Like the Akinator's website, this will turn on the profanity
 		// filter if the age entered is below 16.
@@ -76,6 +100,8 @@ public class AkinatorExample {
 
 		finish(false);
 		// Loses if all guesses are rejected.
+
+		 */
 	}
 
 	private static Guess reviewSuggestedGuess(@Nonnull Akiwrapper aw) {
@@ -188,15 +214,16 @@ public class AkinatorExample {
 	}
 
 	private static boolean getProfanityFilter() {
-		out.print("Enable profanity filtering? [y/N] ");
-		var input = IN.next().trim();
-		return !input.isEmpty() && toLowerCase(input.charAt(0)) == 'y';
+		//out.print("Enable profanity filtering? [y/N] ");
+		//var input = IN.next().trim();
+		//return !input.isEmpty() && toLowerCase(input.charAt(0)) == 'y';
+		return false;
 	}
 
 	@Nonnull
 	@SuppressWarnings("null")
 	private static Language getLanguage() {
-		var languages = EnumSet.allOf(Language.class);
+		/*var languages = EnumSet.allOf(Language.class);
 
 		out.print("What's your language? [English] ");
 		while (true) {
@@ -215,13 +242,15 @@ public class AkinatorExample {
 					.map(Enum::toString)
 					.collect(joining("\n-", "Sorry, that language isn't supported. Available options:\n-", "")));
 			}
-		}
+		}*/
+
+		return PORTUGUESE;
 	}
 
 	@Nonnull
 	@SuppressWarnings("null")
 	private static GuessType getGuessType() {
-		var guessTypes = EnumSet.allOf(GuessType.class);
+		/*var guessTypes = EnumSet.allOf(GuessType.class);
 
 		out.print("What will you be guessing? [character] ");
 		while (true) {
@@ -240,7 +269,9 @@ public class AkinatorExample {
 					.map(Enum::toString)
 					.collect(joining("\n-", "Sorry, that guess type isn't supported. Choose between\n-", "")));
 			}
-		}
+		}*/
+
+		return CHARACTER;
 	}
 
 }
