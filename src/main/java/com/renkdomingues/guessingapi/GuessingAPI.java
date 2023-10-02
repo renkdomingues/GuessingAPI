@@ -36,10 +36,10 @@ public class GuessingAPI {
             "Y or yes, N or no, DK or don't know, P or probably, PN or probably not, or go back one step with B or back.";
     private static final Scanner IN = new Scanner(System.in).useDelimiter("\n");
 
-    private static Akiwrapper aw;
-    private static Question question;
-    private static Boolean isDescription;
-    private static Guess guess;
+    private Akiwrapper aw;
+    private Question question;
+    private Boolean isDescription;
+    private Guess guess;
 
     public GuessingAPI(){
 
